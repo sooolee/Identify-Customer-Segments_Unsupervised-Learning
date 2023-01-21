@@ -1,6 +1,6 @@
 # Identify Customer Segment
 
-In this project, I apply ***unsupervised learning techniques*** to identify segments of the population that form the core customer base for a mail-order sales company in Germany. 
+In this project, I apply unsupervised learning techniques to identify segments of the population that form the core customer base for a mail-order sales company in Germany. 
 
 > Data is given in csv format. 
 > - Demographics data for the general population: Dataset based on which the model is developed.
@@ -18,16 +18,17 @@ In this project, I apply ***unsupervised learning techniques*** to identify segm
 ## Clustering Process
 - Apply `k-means` clustering to the General Population dataset and use the average within-cluster distances from each point to their assigned cluster's centroid to decide on a number of clusters to keep.
 
-<img src="https://github.com/sooolee/Identify-Customer-Segments_Unsupervised-Learning/blob/main/images/num_cluster.png?raw=true" width="400">
+<img src="https://github.com/sooolee/Identify-Customer-Segments_Unsupervised-Learning/blob/main/images/num_cluster.png?raw=true" width="300">
+
 - Once the final number of clusters is decided, re-fit the model (My choice is 20).
 - Carry the same data preprocessing for the Customer dataset.
-- Apply the model to the Customer dataset: "Predict"
+- Apply the k-means cluster model to the Customer dataset: "Predict"
 
 ## Compare Customer Data to Demographics Data
-- Compute the proportion of data points in each cluster for the general population and the customer data. 
+- Compute the proportion of data points in each cluster for the general population and the customer data. (customer/general ratios)
 
 <img src="https://github.com/sooolee/Identify-Customer-Segments_Unsupervised-Learning/blob/main/images/gen-to-cust.png?raw=true" width="600">
 
-- Identify most overrepresented and underrepresented customer clusters compared to general population.
+- Identify most over-represented and under-represented customer clusters compared to general population. (For example, Customer cluster #8 is most over-represented and #18 is most under-represented.)
 - Use the `.inverse_transform()` method of the PCA to transform centroids back to the original data space to find important features to these clusters.
 - Interprete what kinds of people are typified by these clusters. 
